@@ -1,0 +1,710 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+    xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/"
+    xmlns:status="http://purl.org/ontology/bibo/status/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:degrees="http://purl.org/ontology/bibo/degrees/"
+    xmlns:terms="http://purl.org/dc/terms/"
+    xmlns:schema="http://schemas.talis.com/2005/address/schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:event="http://purl.org/NET/c4dm/event.owl#"
+    xmlns:j.0="http://datashapes.org/owl2shacl#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:bibo="http://purl.org/ontology/bibo/"
+    xmlns:sh="http://www.w3.org/ns/shacl#"
+    xmlns:vann="http://purl.org/vocab/vann/"
+    xmlns:dash="http://datashapes.org/dash#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xml:base="http://purl.org/ontology/bibo/.shapes">
+  <owl:Ontology rdf:about="">
+    <j.0:createPropertyShapeURIsWithPrefixes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</j.0:createPropertyShapeURIsWithPrefixes>
+    <owl:imports rdf:resource="http://purl.org/ontology/bibo/"/>
+    <owl:imports rdf:resource="http://datashapes.org/dash"/>
+  </owl:Ontology>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/MultiVolumeBook">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/MultiVolumeBook-terms_hasPart">
+        <sh:path rdf:resource="http://purl.org/dc/terms/hasPart"/>
+        <sh:class rdf:resource="http://purl.org/ontology/bibo/Book"/>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/BookSection">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/BookSection-bibo_chapter">
+        <sh:path rdf:resource="http://purl.org/ontology/bibo/chapter"/>
+        <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/AudioVisualDocument">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/AudioVisualDocument-bibo_director">
+        <sh:path rdf:resource="http://purl.org/ontology/bibo/director"/>
+        <sh:class>
+          <sh:NodeShape rdf:about="http://xmlns.com/foaf/0.1/Agent">
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://xmlns.com/foaf/0.1/Agent-bibo_prefixName">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/prefixName"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://xmlns.com/foaf/0.1/Agent-bibo_interviewee">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/interviewee"/>
+                <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://xmlns.com/foaf/0.1/Agent-bibo_suffixName">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/suffixName"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://xmlns.com/foaf/0.1/Agent-bibo_interviewer">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/interviewer"/>
+                <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+              </sh:PropertyShape>
+            </sh:property>
+          </sh:NodeShape>
+        </sh:class>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/Website">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Website-terms_hasPart">
+        <sh:path rdf:resource="http://purl.org/dc/terms/hasPart"/>
+        <sh:class rdf:resource="http://purl.org/ontology/bibo/Webpage"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/Slideshow">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Slideshow-terms_hasPart">
+        <sh:path rdf:resource="http://purl.org/dc/terms/hasPart"/>
+        <sh:class rdf:resource="http://purl.org/ontology/bibo/Slide"/>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/DocumentPart">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/DocumentPart-terms_isPartOf">
+        <sh:path rdf:resource="http://purl.org/dc/terms/isPartOf"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:maxCount>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/NET/c4dm/event.owl#Event">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/NET/c4dm/event.owl#Event-bibo_organizer">
+        <sh:path rdf:resource="http://purl.org/ontology/bibo/organizer"/>
+        <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/Magazine">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Magazine-terms_hasPart">
+        <sh:path rdf:resource="http://purl.org/dc/terms/hasPart"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:class>
+          <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/Issue">
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Issue-terms_hasPart">
+                <sh:path rdf:resource="http://purl.org/dc/terms/hasPart"/>
+                <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >1</sh:minCount>
+                <sh:class rdf:resource="http://purl.org/ontology/bibo/Article"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Issue-bibo_issue">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/issue"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+          </sh:NodeShape>
+        </sh:class>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/Newspaper">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Newspaper-terms_hasPart">
+        <sh:path rdf:resource="http://purl.org/dc/terms/hasPart"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:class rdf:resource="http://purl.org/ontology/bibo/Issue"/>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/CollectedDocument">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/CollectedDocument-terms_hasPart">
+        <sh:path rdf:resource="http://purl.org/dc/terms/hasPart"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:class>
+          <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/Document">
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_content">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/content"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_contributorList">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/contributorList"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_status">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/status"/>
+                <sh:class rdf:resource="http://purl.org/ontology/bibo/DocumentStatus"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_numPages">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/numPages"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_identifier">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/identifier"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_editorList">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/editorList"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_oclcnum">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/oclcnum"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_shortTitle">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/shortTitle"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_eanucc13">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/eanucc13"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_reviewOf">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/reviewOf"/>
+                <sh:class rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_translationOf">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/translationOf"/>
+                <sh:class rdf:resource="http://purl.org/ontology/bibo/Document"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_handle">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/handle"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_coden">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/coden"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_transcriptOf">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/transcriptOf"/>
+                <sh:class rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_asin">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/asin"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_issuer">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/issuer"/>
+                <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_citedBy">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/citedBy"/>
+                <sh:class rdf:resource="http://purl.org/ontology/bibo/Document"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_upc">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/upc"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_doi">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/doi"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_isbn13">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/isbn13"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_pageStart">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/pageStart"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_edition">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/edition"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_distributor">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/distributor"/>
+                <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_number">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/number"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_section">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/section"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_isbn10">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/isbn10"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_sici">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/sici"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_reproducedIn">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/reproducedIn"/>
+                <sh:class rdf:resource="http://purl.org/ontology/bibo/Document"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_uri">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/uri"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_authorList">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/authorList"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_producer">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/producer"/>
+                <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_gtin14">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/gtin14"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_cites">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/cites"/>
+                <sh:class rdf:resource="http://purl.org/ontology/bibo/Document"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_pages">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/pages"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_owner">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/owner"/>
+                <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_lccn">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/lccn"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_translator">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/translator"/>
+                <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_pageEnd">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/pageEnd"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_pmid">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/pmid"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_editor">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/editor"/>
+                <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_locator">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/locator"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_presentedAt">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/presentedAt"/>
+                <sh:class>
+                  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/Event">
+                    <sh:property>
+                      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Event-bibo_presents">
+                        <sh:path rdf:resource="http://purl.org/ontology/bibo/presents"/>
+                        <sh:class rdf:resource="http://purl.org/ontology/bibo/Document"/>
+                      </sh:PropertyShape>
+                    </sh:property>
+                  </sh:NodeShape>
+                </sh:class>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_shortDescription">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/shortDescription"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Document-bibo_volume">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/volume"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+          </sh:NodeShape>
+        </sh:class>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/Periodical">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Periodical-terms_hasPart">
+        <sh:path rdf:resource="http://purl.org/dc/terms/hasPart"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:class rdf:resource="http://purl.org/ontology/bibo/Issue"/>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/PersonalCommunicationDocument">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/PersonalCommunicationDocument-bibo_recipient">
+        <sh:path rdf:resource="http://purl.org/ontology/bibo/recipient"/>
+        <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/Thesis">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Thesis-bibo_degree">
+        <sh:path rdf:resource="http://purl.org/ontology/bibo/degree"/>
+        <sh:class rdf:resource="http://purl.org/ontology/bibo/ThesisDegree"/>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/Performance">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Performance-bibo_performer">
+        <sh:path rdf:resource="http://purl.org/ontology/bibo/performer"/>
+        <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/Note">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Note-bibo_annotates">
+        <sh:path rdf:resource="http://purl.org/ontology/bibo/annotates"/>
+        <sh:class rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/Journal">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Journal-terms_hasPart">
+        <sh:path rdf:resource="http://purl.org/dc/terms/hasPart"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:class rdf:resource="http://purl.org/ontology/bibo/Issue"/>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/CourtReporter">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/CourtReporter-terms_hasPart">
+        <sh:path rdf:resource="http://purl.org/dc/terms/hasPart"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:class>
+          <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/LegalDocument">
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/LegalDocument-bibo_court">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/court"/>
+                <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/LegalDocument-bibo_argued">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/argued"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+          </sh:NodeShape>
+        </sh:class>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/Code">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Code-terms_hasPart">
+        <sh:path rdf:resource="http://purl.org/dc/terms/hasPart"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:class rdf:resource="http://purl.org/ontology/bibo/Legislation"/>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/Series">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Series-terms_hasPart">
+        <sh:path rdf:resource="http://purl.org/dc/terms/hasPart"/>
+        <sh:class rdf:resource="http://purl.org/ontology/bibo/Document"/>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/LegalDecision">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/LegalDecision-bibo_subsequentLegalDecision">
+        <sh:path rdf:resource="http://purl.org/ontology/bibo/subsequentLegalDecision"/>
+        <sh:class rdf:resource="http://purl.org/ontology/bibo/LegalDecision"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/LegalDecision-bibo_reversedBy">
+        <sh:path rdf:resource="http://purl.org/ontology/bibo/reversedBy"/>
+        <sh:class rdf:resource="http://purl.org/ontology/bibo/LegalDecision"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/LegalDecision-bibo_affirmedBy">
+        <sh:path rdf:resource="http://purl.org/ontology/bibo/affirmedBy"/>
+        <sh:class rdf:resource="http://purl.org/ontology/bibo/LegalDecision"/>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+  <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-terms_hasPart">
+    <sh:path rdf:resource="http://purl.org/dc/terms/hasPart"/>
+    <sh:or rdf:parseType="Collection">
+      <rdf:Description>
+        <sh:class>
+          <sh:NodeShape rdf:about="http://purl.org/ontology/bibo/Collection">
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_sici">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/sici"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_editor">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/editor"/>
+                <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_eissn">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/eissn"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_pmid">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/pmid"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_producer">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/producer"/>
+                <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_distributor">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/distributor"/>
+                <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_upc">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/upc"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_doi">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/doi"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_issn">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/issn"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_isbn10">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/isbn10"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_asin">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/asin"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_oclcnum">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/oclcnum"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_eanucc13">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/eanucc13"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_identifier">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/identifier"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_lccn">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/lccn"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_numVolumes">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/numVolumes"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_translator">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/translator"/>
+                <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_isbn13">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/isbn13"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_coden">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/coden"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_gtin14">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/gtin14"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_handle">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/handle"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_issuer">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/issuer"/>
+                <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property rdf:resource="http://purl.org/ontology/bibo/Collection-terms_hasPart"/>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_owner">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/owner"/>
+                <sh:class rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+              </sh:PropertyShape>
+            </sh:property>
+            <sh:property>
+              <sh:PropertyShape rdf:about="http://purl.org/ontology/bibo/Collection-bibo_uri">
+                <sh:path rdf:resource="http://purl.org/ontology/bibo/uri"/>
+                <sh:datatype rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+              </sh:PropertyShape>
+            </sh:property>
+          </sh:NodeShape>
+        </sh:class>
+      </rdf:Description>
+      <rdf:Description>
+        <sh:class rdf:resource="http://purl.org/ontology/bibo/Document"/>
+      </rdf:Description>
+    </sh:or>
+  </sh:PropertyShape>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->
